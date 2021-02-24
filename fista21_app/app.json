@@ -1,0 +1,36 @@
+{
+  "expo": {
+    "name": "FISTA",
+    "slug": "FISTA",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/fistaicone.png",
+    "splash": {
+      "image": "./assets/fistasplash5.png",
+      "resizeMode": "cover",
+      "backgroundColor    ": "transparent"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "pt.fista.react-native",
+      "buildNumber": "1.0.3"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/fistaicone.png",
+        "backgroundColor": "#FFFFFF"
+      },
+      "versionCode": 6.0,
+      "package": "com.fista"
+    },
+    "web": {
+      "favicon": "./assets/fistaIcon.png"
+    }
+  }
+}
