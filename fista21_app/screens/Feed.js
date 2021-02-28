@@ -6,7 +6,7 @@ import { StatusBar } from 'expo-status-bar';
 import API from '../components/api'
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import * as Font from 'expo-font';
-import { SvgUri } from 'react-native-svg';
+
 
 const width = Dimensions.get('window').width;
 const height = Dimensions.get('window').height;
@@ -144,35 +144,18 @@ semibold: {
 
   renderItem = ({ item }) => {
 
-    if(item.plano !== ""){
-
-      var imagem;
-      if(this.imagemEmpresa(item.id_empresa) !== null){
-          if(this.isSvg(this.imagemEmpresa(item.id_empresa))){
-
-          imagem = <SvgUri style={{marginLeft:width*0.01}} resizeMode={'contain'} uri ={'https://fista.iscte-iul.pt/storage/'+this.imagemEmpresa(item.id_empresa)} width={width*0.20} height={height*0.152} />;
-         
-        }else{
-          imagem = <Image
-          
-              resizeMode={'contain'}
-              source={{uri:'https://fista.iscte-iul.pt/storage/' +this.imagemEmpresa(item.id_empresa)}}
-              style={styles.imagem}
-          />;
-      }
-      }else{
-         imagem = <Image
-              source={require('../assets/default.png')}
-              style={styles.imagem}
-          />;
-      }
-    }
+  
     return( <View style={styles.feedItem}>
       <Card  style={{   backgroundColor: "white",elevation:6,marginLeft:width*0.02,shadowColor: "#000",shadowOffset: {width: 0,height: 5,},shadowOpacity: 0.25,shadowRadius: 10,width:width * 0.85}} onPress={() => this.props.navigation.navigate('Publicação',{ data: item, imagem: this.imagemEmpresa(item.id_empresa), nome: this.nomeEmpresa(item.id_empresa),plano:this.planoEmpresa(item.id_empresa)})}>
         <View style={{backgroundColor:'transparent',flex:1,flexDirection:'row',}}>
           <View style={{backgroundColor:'transparent',marginTop:height*0.04,shadowColor: "#000",marginLeft:-height*0.017,}}>
             <Card  style={{elevation:10,shadowOffset: {width: 3,height: 3,},shadowOpacity: 0.25,shadowRadius: 4,marginTop:-height*0.07,width:width*0.22,height:width*0.22,borderRadius:50}}>
-            {imagem}  
+            <Image
+                 resizeMode={'contain'}
+                 source={{uri:'https://fista.iscte-iul.pt/storage/' + this.imagemEmpresa(item.id_empresa)}}
+                 style={styles.avatar}
+             
+          />
             </Card>
           </View>
 
